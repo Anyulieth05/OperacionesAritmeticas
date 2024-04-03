@@ -14,19 +14,17 @@ def validar_numero(numero):
         print("Por favor, ingrese un número entero y positivo.")
         return None
 
-# Solicitar al usuario que ingrese el primer número
-while True:
-    num1 = input("Ingrese el primer número entero y positivo: ")
-    num1 = validar_numero(num1)
-    if num1 is not None:
-        break
+# Solicitar al usuario que ingrese los números
+numeros = [None, None]
 
-# Solicitar al usuario que ingrese el segundo número
-while True:
-    num2 = input("Ingrese el segundo número entero y positivo: ")
-    num2 = validar_numero(num2)
-    if num2 is not None:
-        break
+for i in range(2):
+    while True:
+        numero = input(f"Ingrese el {'primer' if i == 0 else 'segundo'} número entero y positivo: ")
+        numeros[i] = validar_numero(numero)
+        if numeros[i] is not None:
+            break
+
+num1, num2 = numeros
 
 # Calcular el máximo común divisor
 mcd = calcular_mcd(num1, num2)
